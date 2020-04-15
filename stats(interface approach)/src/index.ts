@@ -1,7 +1,11 @@
 import { MatchReader } from './MatchReader';
-import { CsvFileReader } from './CsvFileReader';
+import { Summery } from './Summary';
 
-const csvFileReader = new CsvFileReader('original.csv');
-const matchReader = new MatchReader(csvFileReader);
+const matchReader = MatchReader.fromCsv('original.csv');
+const summery = Summery.winsAnalysisWithHtmlReport('Man United');
+
 matchReader.load();
-console.log(matchReader.matches);
+summery.buildAndPrintReport(matchReader.matches);
+
+
+
